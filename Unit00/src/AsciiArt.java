@@ -28,5 +28,14 @@ public class AsciiArt
 		System.out.println("\\\\ draws one backslash on the screen!\n" );
 		System.out.println("\\\" draws one double quote on the screen!\n" );
 		System.out.println("\\\' draws one single quote on the screen!\n" ); 
+	
+		   int i = 20;
+		   String line = "*";
+		   while (i > 1) {
+			   line = line+"*";
+			   i = i - 1;
+		   }
+		   System.out.println(line);
+	
 	}
 }
