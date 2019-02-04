@@ -7,6 +7,11 @@ public class Cube
 {
 	public static double area( int side )
 	{
-		return 0;
+		
+		double surfaceArea = 0;
+		
+		surfaceArea = 6*Math.pow(side, 2);
+		
+		return surfaceArea;
 	}
 }
