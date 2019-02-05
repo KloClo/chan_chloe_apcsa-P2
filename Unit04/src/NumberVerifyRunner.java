@@ -18,5 +18,12 @@ public class NumberVerifyRunner
 		System.out.println("5 is even :: " + NumberVerify.isEven(5));
 		
 		//add in more test cases
+		Scanner keyboard = new Scanner(in);
+		out.print("Enter the number :: ");
+		int number = keyboard.nextInt();
+		
+		System.out.println(number+" is odd :: " + NumberVerify.isOdd(number));
+		System.out.println(number+" is even :: " + NumberVerify.isEven(number));
+		
 	}
 }
