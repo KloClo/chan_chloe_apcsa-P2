@@ -17,6 +17,14 @@ public class Discount
 	//			if the bill is >2000, the bill receives a 15% discount
 	public static double getDiscountedBill(double bill)
 	{
-		return 0;
+		double finalBill = bill;
+		
+		if (finalBill > 2000) {
+			finalBill*=0.85;
+		}
+		
+		finalBill = (Math.round(finalBill*100))/(double)100;
+				
+		return finalBill;
 	}
 }
