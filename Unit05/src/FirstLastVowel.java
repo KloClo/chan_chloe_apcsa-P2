@@ -22,7 +22,7 @@ public class FirstLastVowel
 	   else if ((a.substring(0, 1)).equals("O")||(a.substring(a.length()-1)).equals("O")) {
 		   return "yes";
 	   }
-	   else if ((a.substring(0, 1)).equals("AEUIOU")||(a.substring(a.length()-1)).equals("U")) {
+	   else if ((a.substring(0, 1)).equals("U")||(a.substring(a.length()-1)).equals("U")) {
 		   return "yes";
 	   }
 	   
