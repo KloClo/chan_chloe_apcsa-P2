@@ -21,6 +21,6 @@ public class AddSubMult
 			result = a*b;
 		}
 		
-		return result;
+		return (double)Math.round(result*10)/10;
 	}
 }
