@@ -18,5 +18,8 @@ public class Perfect
 	}
 
 	//add a toString	
-	
+	public String toString() {
+		return "";
+		
+	}
 }
