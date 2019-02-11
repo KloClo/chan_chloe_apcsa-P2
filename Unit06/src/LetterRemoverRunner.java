@@ -13,6 +13,9 @@ public class LetterRemoverRunner
 		test.removeLetters();
 		out.println(test.toString());
 		
+		test.removeLetters();
+		out.println(test.toString());
+		
 		
 											
 	}
