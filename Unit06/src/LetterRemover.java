@@ -44,6 +44,6 @@ public class LetterRemover
 
 	public String toString()
 	{
-		return removeLetters() + " - letter to remove " + lookFor;
+		return sentence + " - letter to remove " + lookFor+"\n"+removeLetters();
 	}
 }
