@@ -35,17 +35,38 @@ public class Magpie4
 		{
 			response = "Say something, please.";
 		}
-
-		else if (findKeyword(statement, "no") >= 0)
-		{
-			response = "Why so negative?";
-		}
 		else if (findKeyword(statement, "mother") >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+		else if (findKeyword(statement, "cat") >= 0
+				|| findKeyword(statement, "dog") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		}
+		else if (findKeyword(statement, "Mauro") >= 0)
+		{
+			response = "I bet he's a good teacher!";
+		}
+		else if (findKeyword(statement, "test") >= 0
+				|| findKeyword(statement, "exam") >= 0)
+		{
+			response = "Good luck today! Are you ready?";
+		}
+		else if (findKeyword(statement, "yes") >= 0)
+		{
+			response = "That's the spirit!";
+		}
+		else if (findKeyword(statement, "trash") >= 0)
+		{
+			response = "Reduce, reuse, recycle!";
+		}
+		else if (findKeyword(statement, "no") >= 0)
+		{
+			response = "Why so negative?";
 		}
 
 		// Responses which require transformations
@@ -95,7 +116,12 @@ public class Magpie4
 		return "What would it mean to " + restOfStatement + "?";
 	}
 
-	
+	private String transformIWantStatement(String statement)
+	{
+		String something = "";
+		//get the something from the statement PART ONE
+		return "Would you really be happy if you had" + something + "?";
+	}
 	
 	/**
 	 * Take a statement with "you <something> me" and transform it into 
