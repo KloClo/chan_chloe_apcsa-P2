@@ -34,10 +34,6 @@ public class Magpie3
 		{
 			response = "Say something, please.";
 		}
-		else if (findKeyword(statement, "no") >= 0)
-		{
-			response = "Why so negative?";
-		}
 		else if (findKeyword(statement, "mother") >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
@@ -45,7 +41,11 @@ public class Magpie3
 		{
 			response = "Tell me more about your family.";
 		}
-		else
+		else if (findKeyword(statement, "no") >= 0)
+		{
+			response = "Why so negative?";
+		}
+		else 
 		{
 			response = getRandomResponse();
 		}
