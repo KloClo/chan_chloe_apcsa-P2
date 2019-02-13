@@ -4,6 +4,8 @@
 
 import static java.lang.System.*;
 
+import java.util.Scanner;
+
 public class DoubleRunner
 {
 	public static void main(String[] args)
@@ -13,6 +15,22 @@ public class DoubleRunner
 		System.out.println("biggest = " + run.getBiggest() + "\n");
 
 		//add more test cases
-				
+/*		Scanner keyboard = new Scanner(in);
+		
+		out.print("Enter a number: ");
+		int one = keyboard.nextInt();
+		
+		out.print("Enter a number: ");
+		int two = keyboard.nextInt();
+		
+		out.print("Enter a number: ");
+		int three = keyboard.nextInt();
+		
+		out.print("Enter a number: ");
+		int four = keyboard.nextInt();
+		
+		run.setDoubles(one, two, three, four);
+		System.out.println("biggest = " + run.getBiggest() + "\n");*/
+
 	}
 }
