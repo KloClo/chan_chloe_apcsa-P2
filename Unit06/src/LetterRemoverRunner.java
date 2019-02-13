@@ -13,21 +13,21 @@ public class LetterRemoverRunner
 		test.removeLetters();
 		out.println(test.toString());
 		
-		LetterRemover test1 = new LetterRemover("ssssssssxssssesssssesss", 's');
-		test1.removeLetters();
-		out.println(test1.toString());
+		test.setRemover("ssssssssxssssesssssesss", 's');
+		test.removeLetters();
+		out.println(test.toString());
 		
-		LetterRemover test2 = new LetterRemover("qwertyqwertyqwerty", 'a');
-		test2.removeLetters();
-		out.println(test2.toString());		
+		test.setRemover("qwertyqwertyqwerty", 'a');
+		test.removeLetters();
+		out.println(test.toString());		
 
-		LetterRemover test3 = new LetterRemover("abababababa", 'b');
-		test3.removeLetters();
-		out.println(test3.toString());		
+		test.setRemover("abababababa", 'b');
+		test.removeLetters();
+		out.println(test.toString());		
 		
-		LetterRemover test4 = new LetterRemover("abaababababa", 'x');
-		test4.removeLetters();
-		out.println(test4.toString());		
+		test.setRemover("abaababababa", 'x');
+		test.removeLetters();
+		out.println(test.toString());		
 		
 	}
 }
