@@ -15,22 +15,22 @@ public class DoubleRunner
 		System.out.println("biggest = " + run.getBiggest() + "\n");
 
 		//add more test cases
-/*		Scanner keyboard = new Scanner(in);
+		Scanner keyboard = new Scanner(in);
 		
 		out.print("Enter a number: ");
-		int one = keyboard.nextInt();
+		double one = keyboard.nextDouble();
 		
-		out.print("Enter a number: ");
-		int two = keyboard.nextInt();
+		out.print("Enter a second number: ");
+		double two = keyboard.nextDouble();
 		
-		out.print("Enter a number: ");
-		int three = keyboard.nextInt();
+		out.print("Enter a third number: ");
+		double three = keyboard.nextDouble();
 		
-		out.print("Enter a number: ");
-		int four = keyboard.nextInt();
+		out.print("Enter a fourth number: ");
+		double four = keyboard.nextDouble();
 		
 		run.setDoubles(one, two, three, four);
-		System.out.println("biggest = " + run.getBiggest() + "\n");*/
+		System.out.println("biggest = " + run.getBiggest() + "\n");
 
 	}
 }

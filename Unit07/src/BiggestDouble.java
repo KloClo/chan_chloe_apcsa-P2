@@ -29,11 +29,26 @@ public class BiggestDouble
 	public double getBiggest()
 	{
 		//Compare four doubles with && || !
-		return 0.0;
+		double big = 0;
+		
+		if (one>two && one>three && one>four) {
+			big = one; 
+		}
+		else if (two>one && two>three && two>four) {
+			big = two;
+		}
+		else if (three>one && three>two && three>four) {
+			big = three;
+		}
+		else {
+			big = four;
+		}
+		
+		return big;
 	}
 
 	public String toString()
 	{
-	   return "";
+	   return one+" "+two+" "+three+" "+four;
 	}
 }
