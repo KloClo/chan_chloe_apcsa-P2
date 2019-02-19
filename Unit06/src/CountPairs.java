@@ -12,7 +12,7 @@ public class CountPairs
 		
 		for (int x = 0; x < str.length()-1; x++) {
 			if ((str.charAt(x)==(str.charAt(x+1)))) {
-				count++;
+				count ++;
 			}
 		}
 		

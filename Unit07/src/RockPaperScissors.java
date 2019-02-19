@@ -23,7 +23,7 @@ public class RockPaperScissors
 
 	public void setPlayers(String player)
 	{
-		playChoice = player.toUpperCase();
+		playChoice = player.toUpperCase().trim();
 		
 		int num = (int)(Math.random()*3);
 		
@@ -43,10 +43,17 @@ public class RockPaperScissors
 		String winner="";
 		
 		if (playChoice.equals(compChoice)) {
-			winner = "draw";
+			winner = "Draw";
 		}
-		else if (playChoice.equals("R") && compChoice.equals("S")) {
-			
+		else if ((playChoice.equals("R") && compChoice.equals("S"))
+				|| (playChoice.equals("S") && compChoice.equals("P"))
+				|| (playChoice.equals("P") && compChoice.equals("R")))
+		{
+			winner = "Player";
+		}
+		else 
+		{
+			winner = "Computer";
 		}
 		
 		//give all cases above
@@ -56,7 +63,38 @@ public class RockPaperScissors
 
 	public String toString()
 	{
-		String output="";
+		String play = "";
+		String comp = "";
+		
+		if (playChoice.equals("P")) {
+			play = "Paper";
+		}
+		else if (playChoice.equals("R")) {
+			play = "Rock";
+		}
+		else {
+			play = "Scissors";
+		}
+		
+		if (playChoice.equals("P")) {
+			comp = "Paper";
+		}
+		else if (playChoice.equals("R")) {
+			comp = "Rock";
+		}
+		else {
+			comp = "Scissors";
+		}
+		
+		String output="Player chose "+playChoice+"\nComputer chose "+compChoice;
+		
+		if (determineWinner().equals("Draw")) {
+			output = output + "\nThe game is a draw!";
+		}
+		else {
+		output = output + "\nThe winner is " + determineWinner();
+		}
+		
 		return output;
 	}
 }

@@ -39,6 +39,8 @@ public class StringExplorer
 			}
 		}
 		
+		result = result.substring(0, result.length()-2);
+		
 		System.out.println(result);
 		
 	}

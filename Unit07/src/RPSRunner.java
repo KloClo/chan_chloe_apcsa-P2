@@ -21,7 +21,8 @@ public class RPSRunner
 			//read in the player value
 			response = keyboard.next();
 		
-			RockPaperScissors game = new RockPaperScissors(response);		
+			RockPaperScissors game = new RockPaperScissors(response);	
+			System.out.println(game.toString());
 	}
 }
 
