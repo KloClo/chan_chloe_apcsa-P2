@@ -92,8 +92,35 @@ public class RockPaperScissors
 			output = output + "\nThe game is a draw!";
 		}
 		else {
-		output = output + "\nThe winner is " + determineWinner();
+		
+			String result = "";
+			if (determineWinner().equals("Computer")) {
+				if (compChoice.equals("R")) {
+					result = "Rock breaks Scissors";
+				}
+				else if (compChoice.equals("P")) {
+					result = "Paper covers Rock";
+				}
+				else {
+					result = "Scissors cuts Paper";
+				}	
+			}
+			
+			if (determineWinner().equals("Player")) {
+				if (playChoice.equals("R")) {
+					result = "Rock breaks Scissors";
+				}
+				else if (playChoice.equals("P")) {
+					result = "Paper covers Rock";
+				}
+				else {
+					result = "Scissors cuts Paper";
+				}	
+			}
+			
+			output = output + "\nThe winner is " + determineWinner()+"! <<" + result + ">>";
 		}
+		
 		
 		return output;
 	}
