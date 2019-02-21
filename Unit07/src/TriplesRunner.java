@@ -17,6 +17,6 @@ public class TriplesRunner
 	   
 	   Triples test = new Triples(number);
 	   
-	   System.out.println(test.toString());
+	   System.out.println(test);
 	}
 }
