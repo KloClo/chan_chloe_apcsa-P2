@@ -9,9 +9,13 @@ public class RPSRunner
 {
 	public static void main(String args[])
 	{
+
 		Scanner keyboard = new Scanner(System.in);
 		String response;
 		
+
+		do {
+
 		//add in a do while loop after you get the basics up and running
 		
 			String player = "";
@@ -23,6 +27,12 @@ public class RPSRunner
 		
 			RockPaperScissors game = new RockPaperScissors(response);	
 			System.out.println(game.toString());
+			
+			out.print("Do you want to play again? ");
+			
+			response = keyboard.next();
+			
+		} while (!response.equals("n"));
 	}
 }
 
