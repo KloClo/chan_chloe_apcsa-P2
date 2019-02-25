@@ -9,5 +9,12 @@ public class DeckTester {
 	 */
 	public static void main(String[] args) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		
+		String[] ranks = {"jack","queen","king"};
+		
+		// instantiate suits and points
+		Deck test = new Deck();
 	}
 }
+
+
