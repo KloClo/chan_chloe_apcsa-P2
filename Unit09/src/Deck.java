@@ -33,7 +33,8 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		
-		Card[] cards;
+		Card[] cards = new Card[ranks.length*suits.length*values.length];
+		
 		int x = 0;
 		
 		for (int rank = 0; rank < ranks.length; rank++)
@@ -42,13 +43,13 @@ public class Deck {
 			{
 				for (int value = 0; value < values.length; value++)
 				{
-					cards[x] = (new Card(ranks[rank], suits[suit], values[value]));
-					x++;
+						cards[x] =  new Card(ranks[rank], suits[suit], values[value]);
+						x++;
 				}
 			}
 		}
 		
-		size = size();
+		size = cards.length;
 		
 		shuffle();
 	}
@@ -93,7 +94,7 @@ public class Deck {
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		size--;
-		return cards.get(size);
+		return cards[size-1];
 	}
 
 	/**
@@ -103,9 +104,11 @@ public class Deck {
 	@Override
 	public String toString() {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
-
+		
+		
+		/*
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.get(k);
+				rtn = rtn + cards[k];
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -116,18 +119,18 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k);
+		for (int k = cards.length - 1; k >= size; k--) {
+			rtn = rtn + cards[k];
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.size()) % 2 == 0) {
+			if ((k - cards.length) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
 		}
 
-		rtn = rtn + "\n";
+		rtn = rtn + "\n";*/
 		return rtn;
 	}
 }
