@@ -33,7 +33,7 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		
-		cards = new Card[ranks.length*suits.length*values.length];
+		cards = new Card[ranks.length*suits.length];
 		
 		int x = 0;
 		
@@ -90,8 +90,12 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		size--;
-		return cards[size-1];
+		if (size > 0)
+		{
+			size--;
+			return cards[size];
+		}
+		else return null;
 	}
 
 	/**

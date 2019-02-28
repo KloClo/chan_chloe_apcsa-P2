@@ -16,10 +16,9 @@ public class DeckTester {
 		
 		Deck test = new Deck(ranks, suits, values);
 		
-		System.out.println(test);
+		System.out.println(test);	
 		
-		
-		String[] ranks1 = {"queen","king"};
+/*		String[] ranks1 = {"jack","queen","king"};
 		String[] suits1 = {"diamonds"};
 		int[] values1 = {11, 12, 13};
 		
@@ -30,11 +29,11 @@ public class DeckTester {
 		
 		String[] ranks2 = {"ace"};
 		String[] suits2 = {"diamonds"};
-		int[] values2 = {11};
+		int[] values2 = {1};
 		
 		Deck test2 = new Deck(ranks2, suits2, values2);
 		
-		System.out.println(test2);
+		System.out.println(test2);*/
 	}
 }
 
