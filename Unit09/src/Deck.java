@@ -33,19 +33,16 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		
-		Card[] cards = new Card[ranks.length*suits.length*values.length];
+		cards = new Card[ranks.length*suits.length*values.length];
 		
 		int x = 0;
 		
-		for (int rank = 0; rank < ranks.length; rank++)
+		for (int num = 0; num < ranks.length; num++)
 		{
 			for (int suit = 0; suit < suits.length; suit++)
 			{
-				for (int value = 0; value < values.length; value++)
-				{
-						cards[x] =  new Card(ranks[rank], suits[suit], values[value]);
+						cards[x] =  new Card(ranks[num], suits[suit], values[num]);
 						x++;
-				}
 			}
 		}
 		
@@ -105,8 +102,6 @@ public class Deck {
 	public String toString() {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 		
-		
-		/*
 		for (int k = size - 1; k >= 0; k--) {
 				rtn = rtn + cards[k];
 			if (k != 0) {
@@ -130,7 +125,7 @@ public class Deck {
 			}
 		}
 
-		rtn = rtn + "\n";*/
+		rtn = rtn + "\n";
 		return rtn;
 	}
 }

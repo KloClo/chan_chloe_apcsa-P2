@@ -19,7 +19,7 @@ public class DeckTester {
 		System.out.println(test);
 		
 		
-/*		String[] ranks1 = {"queen","king"};
+		String[] ranks1 = {"queen","king"};
 		String[] suits1 = {"diamonds"};
 		int[] values1 = {11, 12, 13};
 		
@@ -34,7 +34,7 @@ public class DeckTester {
 		
 		Deck test2 = new Deck(ranks2, suits2, values2);
 		
-		System.out.println(test2);*/
+		System.out.println(test2);
 	}
 }
 
