@@ -14,19 +14,61 @@ public class ToyStore
 
 	public ToyStore()
 	{
+		toyList = new ArrayList<Toy>();
 	}
 
 	public void loadToys( String toys )
 	{
+		String list = toys;
+		int loc = list.indexOf(' ');
+
+		while (loc > -1)
+		{
+			Toy toy = new Toy(list.substring(0, loc));
+			
+			if (toyList.size() > 0)
+			{
+				for (int x = 0; x < toyList.size(); x++)
+				{
+					if (getThatToy(toy.getName()) != null)
+					{
+						toyList.get(x).setCount(toyList.get(x).getCount()+1);
+					}
+					else
+					{
+						toyList.add(toy);
+						toy.setCount(toy.getCount()+1);
+					}
+				}
+				
+			}
+			else 
+			{
+				toyList.add(toy);
+				toy.setCount(toy.getCount()+1);
+			}
+			
+			list = list.substring(loc+1);
+			loc = list.indexOf(' ');
+		}
 	}
   
   	public Toy getThatToy( String nm )
   	{
+  		for (int x = 0; x < toyList.size(); x++)
+  		{
+  			if (toyList.get(x).getName().equals(nm)) return toyList.get(x);
+  		}
+  		
   		return null;
   	}
   
   	public String getMostFrequentToy()
   	{
+  		for (int x = 0; x < toyList.size(); x++)
+  		{
+  			
+  		}
   		return "";
   	}  
   
@@ -36,6 +78,6 @@ public class ToyStore
   	  
 	public String toString()
 	{
-	   return "";
+	    return ""+toyList;
 	}
 }
