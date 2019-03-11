@@ -9,11 +9,11 @@ class Rational implements Comparable<Rational>
 	//add two instance variables
 	private int num;
 	private int den;
+	
 	//write two constructors
 	public Rational()
 	{
-		num = 1;
-		den = 1;
+		setRational(1, 1);
 	}
 	
 	public Rational(int n, int d)
@@ -89,6 +89,10 @@ class Rational implements Comparable<Rational>
 
 	
 	//write  toString() method
+	public String toString()
+	{
+		return null;
+	}
 	
 	
 }
