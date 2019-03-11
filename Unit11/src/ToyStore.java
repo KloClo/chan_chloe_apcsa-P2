@@ -21,31 +21,39 @@ public class ToyStore
 	{
 		String list = toys;
 		int loc = list.indexOf(' ');
+		String currentToy = "";
+		
+		int spot = 0;
 
 		while (loc > -1)
 		{
-			Toy toy = new Toy(list.substring(0, loc));
+			currentToy = (list.substring(0, loc));
 			
 			if (toyList.size() > 0)
 			{
 				for (int x = 0; x < toyList.size(); x++)
 				{
-					if (getThatToy(toy.getName()) != null)
+					if (getThatToy(currentToy) != null)
 					{
-						toyList.get(x).setCount(toyList.get(x).getCount()+1);
+						int count = getThatToy(currentToy).getCount();
+						toyList.get(x).setCount(count+1);
 					}
 					else
 					{
-						toyList.add(toy);
-						toy.setCount(toy.getCount()+1);
+						Toy toy = new Toy(currentToy);
+						toy.setCount(1);
+						toyList.add(spot, toy);
+						spot++;
 					}
 				}
-				
+				//hi hi bye hi
 			}
 			else 
 			{
-				toyList.add(toy);
+				Toy toy = new Toy(currentToy);
+				toyList.add(spot, toy);
 				toy.setCount(toy.getCount()+1);
+				spot++;
 			}
 			
 			list = list.substring(loc+1);
