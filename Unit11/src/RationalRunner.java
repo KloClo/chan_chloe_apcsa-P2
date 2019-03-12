@@ -8,14 +8,15 @@ public class RationalRunner
 {
 	public static void main( String args[] )
 	{
-		/*uncomment once Rational class is built
-		 *
+
 		Rational test = new Rational();
 		out.println("test = " + test);
 
 		Rational newOne = new Rational(3,4);
 		out.println("newOne = "+newOne);
 
+		/*uncomment once Rational class is built
+		 *
 		out.println("test.equals(newOne) = "+test.equals(newOne));
 
 		newOne = (Rational)test.clone();

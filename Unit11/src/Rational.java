@@ -24,13 +24,18 @@ class Rational implements Comparable<Rational>
 	//write a setRational method
 	public void setRational(int n, int d)
 	{
-		//what is a Rational?
+		setNum(n);
+		setDen(d);
 	}
 
 	//write a set method for numerator and denominator
-	public void setNum(int n, int d)
+	public void setNum(int n)
 	{
 		num = n;
+	}
+	
+	public void setDen(int d)
+	{
 		den = d;
 	}
 	
@@ -48,7 +53,7 @@ class Rational implements Comparable<Rational>
 
 	private void reduce()
 	{
-
+		//use gcd
 
 
 	}
@@ -62,6 +67,7 @@ class Rational implements Comparable<Rational>
 
 	public Object clone ()
 	{
+		
 		return "";
 	}
 
@@ -69,12 +75,19 @@ class Rational implements Comparable<Rational>
 	//ACCESSORS
 
 	//write get methods for numerator and denominator
+	public int getNum()
+	{
+		return num;
+	}
 	
+	public int getDen()
+	{
+		return den;
+	}
 	
 	public boolean equals( Object obj)
 	{
-
-
+		if ((double)(num/den)==(double)obj) return true;
 		return false;
 	}
 
@@ -91,7 +104,7 @@ class Rational implements Comparable<Rational>
 	//write  toString() method
 	public String toString()
 	{
-		return null;
+		return ""+num + "/" + den;
 	}
 	
 	
