@@ -68,13 +68,11 @@ class Rational implements Comparable<Rational>
 	public Object clone ()
 	{
 		
-		return "";
+		return num + "/" + den;
 	}
 
 
 	//ACCESSORS
-
-	//write get methods for numerator and denominator
 	public int getNum()
 	{
 		return num;
@@ -87,19 +85,16 @@ class Rational implements Comparable<Rational>
 	
 	public boolean equals( Object obj)
 	{
-		if ((double)(num/den)==(double)obj) return true;
+		Rational object = (Rational)obj;
+		if (num*object.getDen() == den*object.getNum()) return true;
 		return false;
 	}
 
 	public int compareTo(Rational other)
 	{
-
-
+		if (num*other.getDen() == den*other.getNum()) return 1;
 		return -1;
 	}
-
-
-
 	
 	//write  toString() method
 	public String toString()
