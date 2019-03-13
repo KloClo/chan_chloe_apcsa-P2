@@ -44,31 +44,34 @@ class Rational implements Comparable<Rational>
 		//num1/den1 + num2/den2 
 		//new numerator = (num1 * den2 + num2 * den1)
 		//new denominator = (den1 * den2)
+		num = (num*other.getDen())+(other.getNum()*den);
+		den = den*other.getDen();
 		
-		
-
-
 		reduce();
 	}
 
 	private void reduce()
 	{
 		//use gcd
-
-
+		int div = gcd(num, den);
+		num = num/div;
+		den = den/div;
 	}
 
 	private int gcd(int numOne, int numTwo)
 	{
-
-
-		return 1;
+		int div = 1;
+		for (int x = 1; x <= numOne && x <= numTwo; x++)
+		{
+			if (numOne%x == 0 && numTwo %x == 0) div = x;
+		}
+		return div;
 	}
 
 	public Object clone ()
 	{
-		
-		return num + "/" + den;
+		Rational object = new Rational(num, den);
+		return object;
 	}
 
 
@@ -93,6 +96,7 @@ class Rational implements Comparable<Rational>
 	public int compareTo(Rational other)
 	{
 		if (num*other.getDen() == den*other.getNum()) return 1;
+		
 		return -1;
 	}
 	

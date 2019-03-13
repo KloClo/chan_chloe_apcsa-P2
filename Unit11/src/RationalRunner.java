@@ -21,8 +21,7 @@ public class RationalRunner
 		newOne = (Rational)test.clone();
 		out.println("\n\nnewOne after test.clone() = "+newOne);
 		out.println("test.equals(newOne) = "+test.equals(newOne));
-		/*uncomment once Rational class is built
-		 *
+
 		Rational rOne = new Rational(1,2);
 		Rational rTwo = new Rational(2,3);
 		out.println("1/2.equals(2/3) = "+rOne.equals(rTwo));
@@ -66,6 +65,6 @@ public class RationalRunner
 		out.println("\n\n1/6.equals(2/8) = "+rOne.equals(rTwo));				
 		rOne.add(rTwo);
 		out.println("\n\n1/6.add(2/8) = "+ rOne);		
-		*/	
+
 	}
 }
