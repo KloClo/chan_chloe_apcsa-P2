@@ -36,6 +36,7 @@ public class ToyStore
 					if (getThatToy(currentToy) != null)
 					{
 						int count = getThatToy(currentToy).getCount();
+						System.out.println(getThatToy(currentToy)+"HERE" +getThatToy(currentToy).getCount());
 						toyList.get(x).setCount(count+1);
 					}
 					else
