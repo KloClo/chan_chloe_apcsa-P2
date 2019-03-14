@@ -10,15 +10,20 @@ public class ToyRunner
 {
 	public static void main(String[] args)
 	{
-		Scanner keyboard = new Scanner(System.in);
+		Scanner keyboard = new Scanner(in);
 		ToyStore test = new ToyStore();
+
+		out.print("Enter a list of toys, separated by spaces: ");
 		
-		out.print("Enter toys: ");
-		String toys = keyboard.nextLine();
+		while (keyboard.hasNext()) 
+		{
+			String toy = keyboard.next();
+			test.loadToys(toy);
+			System.out.println("loaded");
+		} 
 		
-		test.loadToys(toys+" ");
-		
-		System.out.println(test);
+
+		System.out.println("hello");
 
 
 	}
