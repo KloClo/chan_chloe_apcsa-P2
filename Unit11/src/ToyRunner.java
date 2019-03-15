@@ -15,15 +15,19 @@ public class ToyRunner
 
 		out.print("Enter a list of toys, separated by spaces: ");
 		
-		while (keyboard.hasNext()) 
-		{
-			String toy = keyboard.next();
-			test.loadToys(toy);
-			System.out.println("loaded");
-		} 
-		
+		String input = keyboard.nextLine() + " ";
+		int loc = input.indexOf(' ');
+		String currentToy = "";
 
-		System.out.println("hello");
+		while (loc > -1)
+		{
+			currentToy = (input.substring(0, loc));
+			test.loadToys(currentToy);
+			input = input.substring(loc+1);
+			loc = input.indexOf(' ');
+		}
+
+		System.out.println(test);
 
 
 	}

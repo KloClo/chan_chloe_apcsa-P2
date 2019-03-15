@@ -40,7 +40,7 @@ public class ToyStore
 			toy.setCount(toy.getCount()+1);
 		}
 		
-		//System.out.println(toyList);
+		sortToysByCount();
 	}
   
   	public Toy getThatToy( String nm )
@@ -69,15 +69,16 @@ public class ToyStore
   
   	public void sortToysByCount()
   	{
-  		int most = 0;
+  		int most = toyList.size() - 1;
   		Toy current;
 
-  		for (int x = 0; x < toyList.size(); x++)
+  		for (int x = 0; x < toyList.size()-1; x++)
   		{
   			if (toyList.get(x).getCount() > toyList.get(most).getCount())
   			{
-  				current = getThatToy(toyList.get(x).getName());
-
+  				current = getThatToy(toyList.get(most).getName());
+  				toyList.set(most, getThatToy(toyList.get(x).getName()));
+  				toyList.set(x, current);
   			}
   		}
   	}  
@@ -85,6 +86,6 @@ public class ToyStore
 	public String toString()
 	{
 		
-	    return "The List: "+toyList;
+	    return ""+toyList + "\n max == " + getMostFrequentToy();
 	}
 }
