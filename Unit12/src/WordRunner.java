@@ -17,7 +17,7 @@ public class WordRunner
 		int size = file.nextInt();
 		file.nextLine();
 		
-
+		Word text = new Word();
 
 
 
