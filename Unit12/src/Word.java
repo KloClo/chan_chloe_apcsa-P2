@@ -15,12 +15,14 @@ public class Word implements Comparable<Word>
 
 	public int compareTo( Word rhs )
 	{
-		if (word.length() > rhs.length()) return 1;
-		return 0;
+		String w = String.valueOf(rhs);
+		//if (word.length() - w.length() == 0) return 0;
+		
+		return word.compareTo(w);
 	}
 
 	public String toString()
 	{
-		return "";
+		return word;
 	}
 }

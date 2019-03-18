@@ -58,6 +58,8 @@ public class Doggies
 
 	public String toString()
 	{
-		return ""+Arrays.toString(pups);
+		//return ""+Arrays.toString(pups);
+		return ""+pups;
+
 	}
 }
