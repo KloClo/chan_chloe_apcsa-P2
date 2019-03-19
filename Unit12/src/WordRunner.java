@@ -30,10 +30,16 @@ public class WordRunner
 		//System.out.println(array[0].compareTo(array[1]));
 		
 		Arrays.sort(array);
-
-		for(Word w : array) 
+		
+		int max = 1;
+		
+		for (Word w : array)
 		{
-			System.out.println(w);
+			for (Word x : array)
+			{
+				//if word length = max print word 
+			}
+
 		}
 
 	}
