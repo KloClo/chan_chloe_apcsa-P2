@@ -26,20 +26,24 @@ public class WordRunner
 			Word text = new Word(s);
 			array[x] = text;
 		}
-		
-		//System.out.println(array[0].compareTo(array[1]));
-		
+				
 		Arrays.sort(array);
 		
 		int max = 1;
+		int total = 0;
 		
-		for (Word w : array)
+		while (total < size)
 		{
 			for (Word x : array)
 			{
 				//if word length = max print word 
+				if (x.toString().length() == max)
+					{
+						System.out.println(x);
+						total++;
+					}
 			}
-
+			max++;
 		}
 
 	}
