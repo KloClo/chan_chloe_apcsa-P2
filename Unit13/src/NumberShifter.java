@@ -12,9 +12,26 @@ public class NumberShifter
 {
 	public static int[] makeLucky7Array( int size)
 	{
-		return null;
+		int[] array = new int[size];
+		
+		for (int x = 0; x < array.length; x++)
+		{
+			array[x] = (int)(Math.random()*10)+1;
+		}
+		
+		shiftEm(array);
+		
+		return array;
 	}
 	public static void shiftEm(int[] array)
 	{
+		for (int x = 0; x < array.length; x++)
+		{
+			if (array[x] == 7)
+			{
+				int temp = 1;
+				array[x] = (int)(Math.random()*10)+1;
+			}
+		}
 	}
 }

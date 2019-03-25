@@ -13,6 +13,8 @@ public class NumberShifterRunner
 	public static void main( String args[] ) throws IOException
 	{
 		//add test cases
+		System.out.println(Arrays.toString(NumberShifter.makeLucky7Array(20)));
+		
 	}
 }
 
