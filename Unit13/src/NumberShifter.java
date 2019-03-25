@@ -19,18 +19,22 @@ public class NumberShifter
 			array[x] = (int)(Math.random()*10)+1;
 		}
 		
-		shiftEm(array);
+//		shiftEm(array);
 		
 		return array;
 	}
+	
 	public static void shiftEm(int[] array)
 	{
+		int beg = 0;
 		for (int x = 0; x < array.length; x++)
 		{
 			if (array[x] == 7)
 			{
-				int temp = 1;
-				array[x] = (int)(Math.random()*10)+1;
+				int temp = array[beg];
+				array[beg] = 7;
+				array[x] = temp;
+				beg++;
 			}
 		}
 	}

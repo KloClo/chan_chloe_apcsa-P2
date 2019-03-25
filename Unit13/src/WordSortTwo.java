@@ -11,7 +11,30 @@ public class WordSortTwo
 	private String[] wordRay;
 
 	public WordSortTwo(String sentence)
-	{
+	{		
+		int loc = sentence.indexOf(' ');
+		String left = sentence;
+		int i = 1;
+		
+		while (loc > -1){
+			i++;
+			left = left.substring(loc);
+			loc = left.indexOf(' ');
+		}
+		
+		wordRay = new String[i];
+
+		 loc = sentence.indexOf(' ');
+		 left = sentence;
+		 i = 0;
+		while (loc > -1){
+			wordRay[i] = left.substring(0, loc);
+			left = left.substring(loc);
+			loc = left.indexOf(' ');
+			i++;
+		}
+		wordRay[wordRay.length-1] = left;
+
 	}
 
 	public void sort()
@@ -20,7 +43,7 @@ public class WordSortTwo
 
 	public String toString()
 	{
-		String output="";
+		String output=Arrays.toString(wordRay);
 		return output+"\n\n";
 	}
 }
