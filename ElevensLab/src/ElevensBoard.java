@@ -93,9 +93,11 @@ public class ElevensBoard extends Board {
 		int sum = 0;
 		if (selectedCards.size() < 2) return false;
 		
+		
 		for (int x = 0; x < selectedCards.size(); x++ )
 		{
-			sum = sum + selectedCards.get(x);
+			int card1 = selectedCards.get(x).intValue();
+			sum = sum + card1;
 		}
 		if (sum == 11) return true;
 		

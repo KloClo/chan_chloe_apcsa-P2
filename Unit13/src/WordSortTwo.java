@@ -18,7 +18,7 @@ public class WordSortTwo
 		
 		while (loc > -1){
 			i++;
-			left = left.substring(loc);
+			left = left.substring(loc+1);
 			loc = left.indexOf(' ');
 		}
 		
@@ -27,13 +27,12 @@ public class WordSortTwo
 		 loc = sentence.indexOf(' ');
 		 left = sentence;
 		 i = 0;
-		while (loc > -1){
+		 while (loc > -1){
 			wordRay[i] = left.substring(0, loc);
-			left = left.substring(loc);
+			left = left.substring(loc+1);
 			loc = left.indexOf(' ');
 			i++;
 		}
-		wordRay[wordRay.length-1] = left;
 
 	}
 
