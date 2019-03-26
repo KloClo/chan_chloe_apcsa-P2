@@ -33,6 +33,8 @@ public class WordSortTwo
 			loc = left.indexOf(' ');
 			i++;
 		}
+		 
+		 sort();
 
 	}
 
