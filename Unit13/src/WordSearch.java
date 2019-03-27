@@ -26,11 +26,48 @@ public class WordSearch
 
     public boolean isFound( String word )
     {
+    	for (int x = 0; x < m.length; x++)
+    	{
+    		for (int y = 0; y < m[x].length; y++)
+    		{
+    			if (checkRight(word, x, y)) return true;
+    			if (checkLeft(word, x, y)) return true;
+    			if (checkUp(word, x, y)) return true;
+    			if (checkDown(word, x, y)) return true;
+    			if (checkDiagUpRight(word, x, y)) return true;
+    			if (checkDiagUpLeft(word, x, y)) return true;
+    			if (checkDiagDownLeft(word, x, y)) return true;
+    			if (checkDiagDownRight(word, x, y)) return true;
+    		}
+    	}
     	return false;
     }
 
 	public boolean checkRight(String w, int r, int c)
    {
+		boolean found = false;
+		int word = 0;
+		//r is row, c is column
+		if (c <= (m[r].length - w.length()))
+		{
+			for(int x = 0; x < w.length(); x++)
+			{
+				if ((w.charAt(x)) == (m[r][c].charAt(0)))
+					{
+						found = true;
+					}
+			    else{
+						found = false;
+						word = 0;
+					}
+
+				if (found && (w.charAt(x)) == (m[r][c].charAt(0))) word++;
+				c++;
+			}
+		}
+		
+		if (word == w.length()) return true;
+		
 		return false;
 	}
 

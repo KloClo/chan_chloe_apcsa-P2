@@ -22,7 +22,7 @@ public class WordSortTwoRunner
 			WordSortTwo test = new WordSortTwo(sentence);
 			
 			//need to fix wordsorttwo
-			System.out.println(sentence);
+			System.out.println(test);
 		}
 	}
 }
