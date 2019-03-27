@@ -119,7 +119,7 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		int j = 0, q = 0, k = 0;
+		boolean j = false, q = false, k = false;
 		if (selectedCards.size() < 3) return false;
 
 		for (int x = 0; x < selectedCards.size(); x++ )
@@ -127,13 +127,11 @@ public class ElevensBoard extends Board {
 			int c = selectedCards.get(x).intValue();
 			Card obj = cardAt(c);
 			
-			if (obj.rank().equals("jack")) j++;
-			else if (obj.rank().equals("queen")) q++;
-			else if (obj.rank().equals("king")) k++;
+			if (obj.rank().equals("jack")) j = true;
+			else if (obj.rank().equals("queen")) q = true;
+			else if (obj.rank().equals("king")) k = true;
 		}
 		
-		if (k == 1 && q == 1 && j == 1) return true;
-		
-		return false;
+		return (j && q && k);
 	}
 }
