@@ -25,16 +25,16 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 
 
 		//instantiate a Ball
-		
+		BlinkyBall ballPlay = new BlinkyBall();
 		
 		
 		//instantiate a left Paddle
-		
+		Paddle leftP = new Paddle();
 		
 		
 		
 		//instantiate a right Paddle
-		
+		Paddle rightP = new Paddle();
 		
 		
 
