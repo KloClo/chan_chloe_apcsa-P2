@@ -89,12 +89,12 @@ public class Block implements Locatable
     	return yPos;
     }
     
-    public int getW()
+    public int getWidth()
     {
     	return width;
     }
     
-    public int getH()
+    public int getHeight()
     {
     	return height;
     }
@@ -109,9 +109,8 @@ public class Block implements Locatable
 
    public void draw(Graphics window)
    {
-   	//uncomment after you write the set and get methods
-      //window.setColor(color);
-      //window.fillRect(getX(), getY(), getWidth(), getHeight());
+      window.setColor(color);
+      window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
 
    public void draw(Graphics window, Color col)
@@ -122,11 +121,11 @@ public class Block implements Locatable
    
 	public boolean equals(Object obj)
 	{
-		Paddle p = (Paddle)obj;
+		Block p = (Block)obj;
 		if (xPos == p.getX() &&
 			yPos == p.getY() &&
-			height == p.getH() &&
-			width == p.getW() &&
+			height == p.getHeight() &&
+			width == p.getWidth() &&
 			color.equals(getColor())) return true;
 
 		return false;

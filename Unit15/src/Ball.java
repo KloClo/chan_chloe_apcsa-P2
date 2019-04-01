@@ -18,21 +18,45 @@ public class Ball extends Block
 	}
 
 	//add the other Ball constructors
+	public Ball(int x, int y)
+	{
+		super(x,y);
+		xSpeed = 3;
+		ySpeed = 1;
+	}
 	
+	public Ball(int x, int y, int w, int h)
+	{
+		super(x,y, w, h);
+		xSpeed = 3;
+		ySpeed = 1;
+	}
 	
+	public Ball(int x, int y, int w, int h, Color c)
+	{
+		super(x,y, w, h, c);
+		xSpeed = 3;
+		ySpeed = 1;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public Ball(int x, int y, int w, int h, Color c, int xS, int yS)
+	{
+		super(x,y, w, h, c);
+		setX(xS);
+		setY(yS);
+	}
+
 	   
    //add the set methods
-   
+	public void setX(int xS)
+	{
+		xSpeed = xS;
+	}
+	
+	public void setY(int yS)
+	{
+		ySpeed = yS;
+	}
 
    public void moveAndDraw(Graphics window)
    {
@@ -47,14 +71,32 @@ public class Ball extends Block
    
 	public boolean equals(Object obj)
 	{
-
-
-
-
+		Ball p = (Ball)obj;
+		if (xSpeed == p.getX() &&
+			ySpeed == p.getY() &&
+			super.getX() == p.getX() &&
+			super.getY() == p.getY() &&
+			super.getHeight() == p.getHeight() &&
+			super.getWidth() == p.getWidth() &&
+			super.getColor().equals(getColor())) return true;
+		
 		return false;
 	}   
 
    //add the get methods
-
+	public int getX()
+	{
+		return xSpeed;
+	}
+	
+	public int getY()
+	{
+		return ySpeed;
+	}
+	
    //add a toString() method
+	public String toString()
+	{
+		return super.toString() + " " + xSpeed + " " + ySpeed;
+	}
 }
