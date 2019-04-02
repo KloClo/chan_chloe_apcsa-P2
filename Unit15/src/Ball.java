@@ -7,6 +7,7 @@ import java.awt.Graphics;
 
 public class Ball extends Block
 {
+	//will implement collidable interface
 	private int xSpeed;
 	private int ySpeed;
 
@@ -42,18 +43,18 @@ public class Ball extends Block
 	public Ball(int x, int y, int w, int h, Color c, int xS, int yS)
 	{
 		super(x,y, w, h, c);
-		setX(xS);
-		setY(yS);
+		setXSpeed(xS);
+		setYSpeed(yS);
 	}
 
 	   
    //add the set methods
-	public void setX(int xS)
+	public void setXSpeed(int xS)
 	{
 		xSpeed = xS;
 	}
 	
-	public void setY(int yS)
+	public void setYSpeed(int yS)
 	{
 		ySpeed = yS;
 	}
@@ -61,19 +62,22 @@ public class Ball extends Block
    public void moveAndDraw(Graphics window)
    {
    	//draw a white ball at old ball location
+	  window.setColor(Color.WHITE);
+	  window.fillRect(getX(), getY(), getWidth(), getHeight());
 
-
-      setX(getX()+xSpeed);
-		//setY
+      super.setX(getX()+xSpeed);
+      super.setY(getY()+ySpeed);
 
 		//draw the ball at its new location
+      window.setColor(super.getColor());
+	  window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
    
 	public boolean equals(Object obj)
 	{
 		Ball p = (Ball)obj;
-		if (xSpeed == p.getX() &&
-			ySpeed == p.getY() &&
+		if (this.getXSpeed() == p.getXSpeed() &&
+			this.getYSpeed() == p.getYSpeed() &&
 			super.getX() == p.getX() &&
 			super.getY() == p.getY() &&
 			super.getHeight() == p.getHeight() &&
@@ -84,12 +88,12 @@ public class Ball extends Block
 	}   
 
    //add the get methods
-	public int getX()
+	public int getXSpeed()
 	{
 		return xSpeed;
 	}
 	
-	public int getY()
+	public int getYSpeed()
 	{
 		return ySpeed;
 	}

@@ -19,10 +19,11 @@ class BallTestTwo extends Canvas implements Runnable
 		setVisible(true);
 
 		//instantiate a new Ball
-
+		ball = new Ball(100,100,20,20,Color.black,5,6);
 
 		//test the Ball thoroughly
-		
+		System.out.println(ball);
+		System.out.println(ball.equals(ball));
 
 		//test all constructors
 

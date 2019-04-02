@@ -50,8 +50,8 @@ public class Block implements Locatable
    //add the other set methods
     public void setPos( int x, int y)
     {
-    	setX(x);
-    	setY(y);
+    	setXSpeed(x);
+    	setYSpeed(y);
     }
     
     public void setX( int x )
@@ -62,6 +62,15 @@ public class Block implements Locatable
     public void setY( int y )
     {
     	yPos = y;
+    }
+    
+    public void setXSpeed( int x )
+    {
+    	x = 3;
+    }
+    public void setYSpeed( int y )
+    {
+    	y = 1;
     }
     
     public void setW( int w )
@@ -115,8 +124,8 @@ public class Block implements Locatable
 
    public void draw(Graphics window, Color col)
    {
-
-
+	   window.setColor(col);
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
    }
    
 	public boolean equals(Object obj)
