@@ -90,23 +90,26 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 
 		//see if the paddles need to be moved
-		if (keyPressed('W')) //How to check key????
+		if(keys[0] == true)
 		{
-			
+			//move left paddle up and draw it on the window
+			leftPaddle.moveUpAndDraw(window);
 		}
+		if(keys[1] == true)
+		{
+			//move left paddle down and draw it on the window
+			leftPaddle.moveDownAndDraw(window);
 
+		}
+		if(keys[2] == true)
+		{
+			rightPaddle.moveUpAndDraw(window);
+		}
+		if(keys[3] == true)
+		{
+			rightPaddle.moveDownAndDraw(window);
 
-
-
-
-
-
-
-
-
-
-
-
+		}
 
 		
 		twoDGraph.drawImage(back, null, 0, 0);
