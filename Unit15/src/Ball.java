@@ -62,15 +62,13 @@ public class Ball extends Block
    public void moveAndDraw(Graphics window)
    {
    	//draw a white ball at old ball location
-	  window.setColor(Color.WHITE);
-	  window.fillRect(getX(), getY(), getWidth(), getHeight());
-
+	  draw(window, Color.white);
+	  
       super.setX(getX()+xSpeed);
       super.setY(getY()+ySpeed);
 
 		//draw the ball at its new location
-      window.setColor(super.getColor());
-	  window.fillRect(getX(), getY(), getWidth(), getHeight());
+      draw(window);
    }
    
 	public boolean equals(Object obj)

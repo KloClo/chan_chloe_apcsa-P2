@@ -25,9 +25,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	public Pong()
 	{
 		//set up all variables related to the game
-		ball = new Ball(100,100,15,15,Color.BLUE,3,3);
-		leftPaddle = new Paddle(750,350,30,50,Color.YELLOW,4);
-		rightPaddle = new Paddle(30,350,30,50,Color.YELLOW,4);
+		ball = new Ball(100,100,15,15,Color.BLUE,5,6);
+		leftPaddle = new Paddle(20,350,20,50,Color.YELLOW,3);
+		rightPaddle = new Paddle(740,350,20,50,Color.YELLOW,3);
 
 
 		keys = new boolean[4];
@@ -35,9 +35,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
     
     	setBackground(Color.WHITE);
 		setVisible(true);
-		
-		new Thread(this).start();
-		addKeyListener(this);		//starts the key thread to log key strokes
+
+		this.addKeyListener(this);	
+		new Thread(this).start();	//starts the key thread to log key strokes
 	}
 	
    public void update(Graphics window){
@@ -73,9 +73,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 		
 		//see if the ball hits the top or bottom wall 
-		if(!(ball.getY()>=10 && ball.getY()<=480))
+		if(!(ball.getY()>=10 && ball.getY()<=450))
 		{
-			ball.setYSpeed(ball.getYSpeed()*-1);
+			ball.setYSpeed(-ball.getYSpeed());
 		}
 
 
@@ -99,7 +99,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			//move left paddle down and draw it on the window
 			leftPaddle.moveDownAndDraw(window);
-
 		}
 		if(keys[2] == true)
 		{
