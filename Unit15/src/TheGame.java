@@ -3,6 +3,8 @@
 //Name -
 
 import javax.swing.JFrame;
+
+import java.awt.Color;
 import java.awt.Component;
 
 public class TheGame extends JFrame
