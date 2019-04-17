@@ -57,7 +57,7 @@ public class PictureTester
   {
     // uncomment a call here to run a test
     // and comment out the ones you don't want
-    // to run
+    // to run ALL WILL BE TESTED
     testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();

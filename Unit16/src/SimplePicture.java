@@ -66,7 +66,7 @@ public class SimplePicture implements DigitalPicture
   */
  public SimplePicture(String fileName)
  {
-	String file = "src\\images\\" + fileName;
+	String file = "C:\\Users\\chanc6478\\Desktop\\Code\\chan_chloe_apcsa-P2\\Unit16\\src\\images\\" + fileName;
  
    // load the picture into the buffered image 
    load(file);
