@@ -57,8 +57,8 @@ public class PictureTester
   {
     // uncomment a call here to run a test
     // and comment out the ones you don't want
-    // to run ALL WILL BE TESTED
-    testZeroBlue();
+    // to run
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -70,7 +70,7 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+    testCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();

@@ -226,9 +226,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
   private void setUpNextAndPreviousButtons()
   {
     // create the image icons for the buttons
-    Icon prevIcon = new ImageIcon(DigitalPicture.class.getResource("C:\\Users\\chanc6478\\Desktop\\Code\\chan_chloe_apcsa-P2\\Unit16\\src\\leftArrow.gif"),  
+    Icon prevIcon = new ImageIcon(DigitalPicture.class.getResource("leftArrow.gif"), 
                                   "previous index");
-    Icon nextIcon = new ImageIcon(DigitalPicture.class.getResource("C:\\Users\\chanc6478\\Desktop\\Code\\chan_chloe_apcsa-P2\\Unit16\\src\\rightArrow.gif"), 
+    Icon nextIcon = new ImageIcon(DigitalPicture.class.getResource("rightArrow.gif"), 
                                   "next index");
     // create the arrow buttons
     colPrevButton = new JButton(prevIcon);
