@@ -636,6 +636,7 @@ public class SimplePicture implements DigitalPicture
      fileLoc = file.getParentFile(); 
    }
    
+   System.out.println(fileLoc);
    // check that you can write to the directory 
    if (!fileLoc.canWrite()) {
         throw new IOException(fileName +

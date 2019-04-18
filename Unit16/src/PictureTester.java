@@ -9,11 +9,26 @@
 public class PictureTester
 {
   /** Method to test zeroBlue */
+  public static void testZeroRed()
+  {
+    Picture beach = new Picture("rdj.jpg");
+    beach.explore();
+    beach.zeroRed();
+    beach.explore();
+  }
+  
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
+    Picture beach = new Picture("rdj.jpg");
     beach.zeroBlue();
+    beach.explore();
+
+  }
+  
+  public static void testZeroGreen()
+  {
+    Picture beach = new Picture("rdj.jpg");
+    beach.zeroGreen();
     beach.explore();
   }
   
@@ -58,7 +73,10 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    //testZeroBlue();
+    testZeroRed();
+    testZeroBlue();
+    testZeroGreen();
+
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -70,7 +88,7 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    testCollage();
+    //testCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
