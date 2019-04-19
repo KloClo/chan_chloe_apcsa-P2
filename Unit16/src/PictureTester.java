@@ -8,10 +8,10 @@
  */
 public class PictureTester
 {
-  /** Method to test zeroBlue */
+  /** Method to test zeroColor */
   public static void testZeroRed()
   {
-    Picture beach = new Picture("rdj.jpg");
+    Picture beach = new Picture("water.jpg");
     beach.explore();
     beach.zeroRed();
     beach.explore();
@@ -19,17 +19,63 @@ public class PictureTester
   
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("rdj.jpg");
+    Picture beach = new Picture("water.jpg");
     beach.zeroBlue();
     beach.explore();
-
   }
   
   public static void testZeroGreen()
   {
-    Picture beach = new Picture("rdj.jpg");
+    Picture beach = new Picture("water.jpg");
     beach.zeroGreen();
     beach.explore();
+  }
+  
+  /** Method to test keepOnlyColor */
+  public static void testKeepOnlyBlue()
+  {
+    Picture beach = new Picture("water.jpg");
+    beach.keepOnlyBlue();
+    beach.explore();
+  }
+  
+  public static void testKeepOnlyRed()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.keepOnlyRed();
+    beach.explore();
+  }
+  
+  public static void testKeepOnlyGreen()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.keepOnlyGreen();
+    beach.explore();
+  }
+  
+  /** Method to test negate */
+  public static void testNegate()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.negate();
+    beach.explore();
+  }
+  
+  /** Method to test grayscale */
+  public static void testGrayscale()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.grayscale();
+    beach.explore();
+  }
+  
+  /** Method to test mirrorVertical */
+  public static void testFixUnderwater()
+  {
+    Picture caterpillar = new Picture("water.jpg");
+    caterpillar.explore();
+    caterpillar.fixUnderwater();
+    caterpillar.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -73,16 +119,15 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroRed();
-    testZeroBlue();
-    testZeroGreen();
-
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
+//    testZeroRed();
+//    testZeroBlue();
+//    testZeroGreen();
+//    testKeepOnlyBlue();
+//    testKeepOnlyRed();
+//    testKeepOnlyGreen();
+//    testNegate();
+//    testGrayscale();
+    testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
