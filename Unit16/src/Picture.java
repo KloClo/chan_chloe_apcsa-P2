@@ -489,18 +489,18 @@ public void mirrorHorizontalBotToTop()
   {
     Picture flower1 = new Picture("robot.jpg");
     Picture flower2 = new Picture("caterpillar.jpg");
-    this.copy(flower1,0,0);
-    this.copy(flower2,0,50);
+    this.copy(flower1,0,200);
+    this.copyTwo(flower2,120,50,50, 90, 20, 60);
     Picture g = new Picture(flower1);
     g.grayscale();
-    this.copy(g,0,200);
+    this.copy(g,100,0);
     Picture flowerNoBlue = new Picture(flower2);
     flowerNoBlue.zeroGreen();
-    this.copy(flowerNoBlue,0,300);
+    this.copy(flowerNoBlue,200,100);
     Picture onlyRed = new Picture(flower1);
-    onlyRed.keepOnlyRed();
-    this.copy(onlyRed,0,400);
-    this.mirrorHorizontalBotToTop();
+    onlyRed.negate();
+    this.copy(onlyRed,350,0);
+    this.mirrorHorizontal();
     this.write("collage.jpg");
   }
   
