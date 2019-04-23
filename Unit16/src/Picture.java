@@ -293,6 +293,30 @@ public void mirrorHorizontalBotToTop()
    }
  } 
 }
+
+/** Method that mirrors the picture around a 
+ * vertical mirror in the center of the picture
+ * from bottom to top */
+public void mirrorDiagonal()
+{
+ Pixel[][] pixels = this.getPixels2D();
+ Pixel topPixel = null;
+ Pixel botPixel = null;
+ int height = 0;
+ 
+ if (pixels.length < pixels[0].length) height = pixels.length-1;
+ else height = pixels[0].length - 1;
+ 
+ for (int row = height; row >= 0; row--)
+ {
+   for (int col = height; col >= 0 ; col--)
+   {
+     topPixel = pixels[row][col];
+     botPixel = pixels[col][row];
+     botPixel.setColor(topPixel.getColor());
+   }
+ } 
+}
  
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
@@ -513,6 +537,7 @@ public void mirrorHorizontalBotToTop()
     Pixel rightPixel = null;
     Pixel[][] pixels = this.getPixels2D();
     Color rightColor = null;
+    
     for (int row = 0; row < pixels.length; row++)
     {
       for (int col = 0; 
@@ -521,15 +546,49 @@ public void mirrorHorizontalBotToTop()
         leftPixel = pixels[row][col];
         rightPixel = pixels[row][col+1];
         rightColor = rightPixel.getColor();
-        if (leftPixel.colorDistance(rightColor) > 
-            edgeDist)
+        
+        if (leftPixel.colorDistance(rightColor) > edgeDist)
           leftPixel.setColor(Color.BLACK);
         else
           leftPixel.setColor(Color.WHITE);
       }
     }
+    
   }
   
+  /** Method to show large changes in color 
+   * @param edgeDist the distance for finding edges
+   */
+ public void edgeDetection2(int edgeDist)
+ {
+   Pixel leftPixel = null;
+   Pixel botPixel = null;
+   Pixel[][] pixelsTwo = this.getPixels2D();
+   Color botColor = null;
+
+   for (int row = 0; row < pixelsTwo.length-1; row++)
+   {
+     for (int col = 0; 
+          col < pixelsTwo[0].length; col++)
+     {
+       leftPixel = pixelsTwo[row][col];
+       botPixel = pixelsTwo[row+1][col];
+       botColor = botPixel.getColor();
+       
+       if (leftPixel.colorDistance(botColor) > edgeDist)
+         {
+       	leftPixel = pixelsTwo[row][col];
+           leftPixel.setColor(Color.BLACK);
+         }
+         else
+	      {
+	        leftPixel = pixelsTwo[row][col];
+	        leftPixel.setColor(Color.WHITE);
+	      }
+     }
+   }
+   
+ }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
