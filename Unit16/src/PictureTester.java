@@ -87,12 +87,57 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  /** Method to test mirrorVertical Right to Left*/
+  public static void testMirrorVerticalRightToLeft()
+  {
+    Picture caterpillar = new Picture("caterpillar.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorVerticalRightToLeft();
+    caterpillar.explore();
+  }
+  
+  /** Method to test mirrorHorizontal */
+  public static void testMirrorHorizontal()
+  {
+    Picture caterpillar = new Picture("redMotorcycle.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontal();
+    caterpillar.explore();
+  }
+  
+  /** Method to test mirrorHorizontalBotToTop */
+  public static void testMirrorHorizontalBotToTop()
+  {
+    Picture caterpillar = new Picture("redMotorcycle.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontalBotToTop();
+    caterpillar.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
     Picture temple = new Picture("temple.jpg");
     temple.explore();
     temple.mirrorTemple();
+    temple.explore();
+  }
+  
+  /** Method to test mirrorTemple */
+  public static void testMirrorArms()
+  {
+    Picture temple = new Picture("snowman.jpg");
+    temple.explore();
+    temple.mirrorArms();
+    temple.explore();
+  }
+  
+  /** Method to test mirrorTemple */
+  public static void testMirrorGull()
+  {
+    Picture temple = new Picture("seagull.jpg");
+    temple.explore();
+    temple.mirrorGull();
     temple.explore();
   }
   
@@ -104,6 +149,21 @@ public class PictureTester
     canvas.explore();
   }
   
+  /** Method to test the collage method */
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.createMyCollage();
+    canvas.explore();
+  }
+  
+  /** Method to test the collage method */
+  public static void testCopy()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.createCollageTwo();
+    canvas.explore();
+  }
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -127,14 +187,18 @@ public class PictureTester
 //    testKeepOnlyGreen();
 //    testNegate();
 //    testGrayscale();
-    testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
+//    testFixUnderwater();
+//	  testMirrorVertical();
+//	  testMirrorVerticalRightToLeft();
+//	  testMirrorHorizontal();
+//	  testMirrorHorizontalBotToTop();
+	  //testMirrorDiagonal(); challenge if time
+//    testMirrorTemple();
+//    testMirrorArms();
+//    testMirrorGull();
+//    testCollage();
+      testMyCollage();
+//    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
