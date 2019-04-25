@@ -117,7 +117,7 @@ public class PictureTester
   /** Method to test mirrorHorizontalBotToTop */
   public static void testMirrorDiagonal()
   {
-    Picture caterpillar = new Picture("rdj.jpg");
+    Picture caterpillar = new Picture("beach.jpg");
     caterpillar.explore();
     caterpillar.mirrorDiagonal();
     caterpillar.explore();
@@ -219,6 +219,7 @@ public class PictureTester
 //    testCopy();
 //    testEdgeDetection();
 //    testEdgeDetection2();
+	  
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
