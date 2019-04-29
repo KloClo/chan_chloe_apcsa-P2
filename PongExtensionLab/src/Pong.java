@@ -19,24 +19,29 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private Paddle paddle;
 	private boolean[] keys;
 	private BufferedImage back;
-	private int rScore;
-	private int lScore;
+	private int score;
+	private Block board;
+	private Block brick;
+
 	
 	private boolean gameOver;
+	private int level;
 
 	public Pong()
 	{
 		//set up all variables related to the game
 		ball = new Ball(400,350,10,10,Color.BLUE,-2,2);
-		paddle = new Paddle(20,350,40,40,Color.YELLOW,5);
+		paddle = new Paddle(100,350,40,40,Color.YELLOW,3);
 
 		keys = new boolean[4];
-		rScore = 0;
-		lScore = 0;
+		score = 0;
+		level = 1;
 		
 		gameOver = false;
+		
+		board = new Block(5, 5, 760, 460, Color.WHITE);
     
-    	setBackground(Color.WHITE);
+    	setBackground(Color.BLACK);
 		setVisible(true);
 
 		this.addKeyListener(this);	
@@ -61,10 +66,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 
+		board.draw(graphToBack);
 
 		ball.moveAndDraw(graphToBack);
 		paddle.draw(graphToBack);
-
 
 		//see if ball hits left wall or right wall
 		if(!(ball.getX()>=10 && ball.getX()<=750))
@@ -96,47 +101,49 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		}
 
 		//see if the ball hits the paddle 
-		if (((ball.getX() <= paddle.getX() + paddle.getWidth() + Math.abs(ball.getXSpeed())) || 
-				ball.getX() + ball.getWidth() >= paddle.getX() - Math.abs(ball.getXSpeed())) 
-				&& ((ball.getY() >= paddle.getY() && 
+		if (((ball.getX() <= paddle.getX() + paddle.getWidth() + Math.abs(ball.getXSpeed()) &&
+				ball.getX() > paddle.getX()) || 
+				(ball.getX() + ball.getWidth() >= paddle.getX() - Math.abs(ball.getXSpeed())) && 
+				(ball.getX() + ball.getWidth() < paddle.getX()+paddle.getWidth())) && 
+				((ball.getY() >= paddle.getY() && 
 				ball.getY() <= paddle.getY() + paddle.getHeight()) ||
 				(ball.getY() + ball.getHeight() >= paddle.getY() &&
 				ball.getY() + ball.getHeight() < paddle.getY() + paddle.getHeight())))
 		{
-			if (((ball.getX() <= paddle.getX() + paddle.getWidth() + Math.abs(ball.getXSpeed())) && 
-					ball.getX() + ball.getWidth() >= paddle.getX() - Math.abs(ball.getXSpeed()))) ball.setYSpeed(-ball.getYSpeed());
+			if (((ball.getX() <= paddle.getX() + paddle.getWidth() - Math.abs(ball.getXSpeed())) && 
+					ball.getX() + ball.getWidth() >= paddle.getX() + Math.abs(ball.getXSpeed()))) ball.setYSpeed(-ball.getYSpeed());
 			else ball.setXSpeed(-ball.getXSpeed());
 		}
 		
+		//see if the ball hits a brick
 		
 		
 		//see if the paddles need to be moved
 		if(keys[0] == true)
 		{
 			//move left paddle up and draw it on the window
-			paddle.moveUpAndDraw(graphToBack);
+			if (paddle.getY() > 55) paddle.moveUpAndDraw(graphToBack);
 		}
 		if(keys[1] == true)
 		{
 			//move left paddle down and draw it on the window
-			paddle.moveDownAndDraw(graphToBack);
+			if (paddle.getY() < 370) paddle.moveDownAndDraw(graphToBack);
 		}
 		if(keys[2] == true)
 		{
-			paddle.moveLeftAndDraw(graphToBack);
+			if (paddle.getX() > 55) paddle.moveLeftAndDraw(graphToBack);
 		}
 		if(keys[3] == true)
 		{
-			paddle.moveRightAndDraw(graphToBack);
+			if (paddle.getX() < 670) paddle.moveRightAndDraw(graphToBack);
 		}
 		
-		graphToBack.setColor(Color.WHITE);
+		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(350, 500, 100, 100);
 		
-		graphToBack.setColor(Color.RED);
+		graphToBack.setColor(Color.WHITE);
 
-		graphToBack.drawString("Right Score: " + rScore, 350, 550);
-		graphToBack.drawString("Left Score: " + lScore, 350, 525);
+		graphToBack.drawString("Level " + level, 350, 525);
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	
