@@ -206,12 +206,12 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 			if (x%2 == 0) 
 				{
-					ball.setXSpeed(2);
-					ball.setYSpeed(-2);
+					ball.setXSpeed(3);
+					ball.setYSpeed(-3);
 				}
 			else{
-					ball.setXSpeed(-2);
-					ball.setYSpeed(2);
+					ball.setXSpeed(-3);
+					ball.setYSpeed(3);
 				}
 			
 			if (!fin) level++;
@@ -280,7 +280,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				graphToBack.setColor(Color.BLACK);
 				graphToBack.fillRect(0, 0, 800, 600);
 				graphToBack.setColor(Color.WHITE);
-				graphToBack.drawString("Game Over! ", 350, 300);
+				graphToBack.drawString("Game Over!", 350, 300);
 			}
 			
 		}
@@ -315,7 +315,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		
 		graphToBack.setColor(Color.WHITE);
 
-		graphToBack.drawString("Level " + level, 350, 525);
+		if (!fin) graphToBack.drawString("Level " + level, 350, 525);
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	
