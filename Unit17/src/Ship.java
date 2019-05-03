@@ -39,12 +39,14 @@ public class Ship extends MovingThing
 		speed=s;
 		try
 		{
-			URL url = getClass().getResource("/images/ship.jpg");
+			URL url = getClass().getResource("images/ship.jpg");
 			image = ImageIO.read(url);
 		}
 		catch(Exception e)
 		{
 			//feel free to do something here
+	         System.out.println("There was an error trying to write " + image);
+	         e.printStackTrace();
 		}
 	}
 
@@ -63,15 +65,15 @@ public class Ship extends MovingThing
 	public void move(String direction)
 	{
 		//add code here
-		if (direction.equals("LEFT")) super.setX(getX() - speed); 
-		else if (direction.equals("RIGHT")) super.setX(getX() + speed); 
-		else if (direction.equals("UP")) super.setY(getY() - speed); 
-		else if (direction.equals("DOWN")) super.setY(getY() + speed); 
+		if (direction.equals("LEFT")) super.setX(super.getX() - speed); 
+		else if (direction.equals("RIGHT")) super.setX(super.getX() + speed); 
+		else if (direction.equals("UP")) super.setY(super.getY() - speed); 
+		else if (direction.equals("DOWN")) super.setY(super.getY() + speed); 
 	}
 
 	public void draw( Graphics window )
 	{
-   	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
+		window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
 
 	public String toString()
