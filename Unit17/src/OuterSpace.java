@@ -19,12 +19,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
-
+	
 	/* uncomment once you are ready for this part
 	 *
-   private AlienHorde horde;
+    private AlienHorde horde;
+    */
 	private Bullets shots;
-	*/
+	
 
 	private boolean[] keys;
 	private BufferedImage back;
@@ -37,6 +38,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//instantiate other instance variables
 		//Ship, Alien
+		ship = new Ship(365,450,50,50,2);
+		alienOne = new Alien(360,50,50,50,3);
+		alienTwo = new Alien(290,50,50,50,3);
+		shots = new Bullets();
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -67,42 +72,50 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
+		
+		ship.draw(graphToBack);
+		alienOne.draw(graphToBack);
+		alienTwo.draw(graphToBack);
 
 		if(keys[0] == true)
 		{
-			ship.move("LEFT");
-			System.out.println("left");
-
+			if(ship.getX() > 10) ship.move("LEFT");
 		}
 
 		//add code to move Ship, Alien, etc.
 		if(keys[1] == true)
 		{
-			ship.move("RIGHT");
-			System.out.println("right");
+			if(ship.getX() < 700) ship.move("RIGHT");
 		}
 		
 		if(keys[2] == true)
 		{
-			ship.move("UP");
-			System.out.println("up");
-
+			if(ship.getY() > 10) ship.move("UP");
 		}
 		
 		if(keys[3] == true)
 		{
-			ship.move("DOWN");
-			System.out.println("down");
-
+			if(ship.getY() < 500) ship.move("DOWN");
 		}
 		
 		if(keys[4] == true)
 		{
 			//Shoot bullets
+			Ammo ammo = new Ammo(ship.getX() + 20,ship.getY() - 10,3);
+			shots.add(ammo);
+			keys[4] = false;
 		}
+		
+		for (Ammo a : shots.getList())
+		{
+			a.draw(graphToBack);
+		}
+		
+		shots.cleanEmUp();
+		shots.moveEmAll();
 
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-
+		//if bullet hits alien make alien disappear 
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
