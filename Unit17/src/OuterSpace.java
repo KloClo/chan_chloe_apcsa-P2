@@ -19,13 +19,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
-	
-	/* uncomment once you are ready for this part
-	 *
     private AlienHorde horde;
-    */
 	private Bullets shots;
 	
+	private boolean gameOver;
 
 	private boolean[] keys;
 	private BufferedImage back;
@@ -39,9 +36,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//instantiate other instance variables
 		//Ship, Alien
 		ship = new Ship(365,450,50,50,2);
-		alienOne = new Alien(360,50,50,50,3);
-		alienTwo = new Alien(290,50,50,50,3);
+		horde = new AlienHorde(20);
 		shots = new Bullets();
+		gameOver = false;
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -74,10 +71,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.fillRect(0,0,800,600);
 		
 		ship.draw(graphToBack);
-		alienOne.draw(graphToBack);
-		alienTwo.draw(graphToBack);
 
-		if(keys[0] == true)
+		if(keys[0] == true && !gameOver)
 		{
 			if(ship.getX() > 10) ship.move("LEFT");
 		}
@@ -85,17 +80,17 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//add code to move Ship, Alien, etc.
 		if(keys[1] == true)
 		{
-			if(ship.getX() < 700) ship.move("RIGHT");
+			if(ship.getX() < 700 && !gameOver) ship.move("RIGHT");
 		}
 		
 		if(keys[2] == true)
 		{
-			if(ship.getY() > 10) ship.move("UP");
+			if(ship.getY() > 10 && !gameOver) ship.move("UP");
 		}
 		
 		if(keys[3] == true)
 		{
-			if(ship.getY() < 500) ship.move("DOWN");
+			if(ship.getY() < 500 && !gameOver) ship.move("DOWN");
 		}
 		
 		if(keys[4] == true)
@@ -106,16 +101,28 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			keys[4] = false;
 		}
 		
-		for (Ammo a : shots.getList())
-		{
-			a.draw(graphToBack);
-		}
+		shots.drawEmAll(graphToBack);
+		horde.drawEmAll(graphToBack);
 		
-		shots.cleanEmUp();
+		for (int i = 0; i < shots.getList().size(); i++)
+		{
+			if (shots.getList().get(i).getY() < 0) shots.getList().remove(i);
+		}
 		shots.moveEmAll();
 
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-		//if bullet hits alien make alien disappear 
+		//if bullets hit ship game over
+		
+		horde.removeDeadOnes(shots.getList());
+		
+		if (gameOver)
+		{
+			//print game over
+			graphToBack.setColor(Color.BLACK);
+			graphToBack.fillRect(0, 0, 800, 600);
+			graphToBack.setColor(Color.WHITE);
+			graphToBack.drawString("Game Over!", 350, 300);
+		}
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
