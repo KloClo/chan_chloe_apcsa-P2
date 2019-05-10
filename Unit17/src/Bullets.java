@@ -32,7 +32,7 @@ public class Bullets
 
 	public void moveEmAll()
 	{
-			for (Ammo a : ammo) a.move("UP");
+		for (Ammo a : ammo) a.move("UP");
 	}
 
 	public void cleanEmUp()

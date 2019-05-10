@@ -13,19 +13,21 @@ import java.util.List;
 public class AlienHorde
 {
 	private List<Alien> aliens;
+	boolean right = false, left = false, down = false;
 
 	public AlienHorde(int size)
 	{
 		aliens = new ArrayList<Alien>();
-		int x = 50;
-		int y = 50;
+		int x = 0;
+		int y = 0;
 
-		for (int j = 0; j < (size/10); j++) //each row
+		for (int j = 0; j < (size/10); j++) 
 		{
-			x = 50;
-			for(int i = 0; i < size; i++) // each one in a row
+			x = 0;
+
+			for(int i = 0; i < 10; i++)
 			{
-				Alien a = new Alien(x, y, 50, 50,5);
+				Alien a = new Alien(x, y, 50, 50,1);
 				aliens.add(a);
 				x += 60;
 			}
@@ -40,11 +42,42 @@ public class AlienHorde
 
 	public void drawEmAll( Graphics window )
 	{
-		for (Alien a : aliens) a.draw(window);
+		for (Alien a : aliens) {
+			a.draw(window);
+		}
 	}
 
 	public void moveEmAll()
 	{
+		if (aliens.size() > 0)
+		{
+			for (Alien a : aliens)
+			{
+				if (a.getX() == 0) 
+				{
+					right = true;
+					left = false;
+					down = true;
+				}
+				else if (a.getX()+a.getWidth() == 785) 
+				{
+					right = false;
+					left = true;
+					down = true;
+				}
+								
+				if(right) a.move("RIGHT");
+				if(left) a.move("LEFT");
+				if(down)
+				{
+					for (Alien b : aliens)
+					{
+						for(int i = 0; i < 10; i++)	b.move("DOWN");
+					}
+					down = false;
+				}
+			}
+		}
 	}
 
 	public void removeDeadOnes(List<Ammo> shots)
@@ -77,6 +110,12 @@ public class AlienHorde
 
 	public String toString()
 	{
+		if (aliens.size() == 0) return "NONE";
+		for (Alien a : aliens)
+		{
+			if (a.getY() + a.getHeight() >= 500) return "LOST";
+			return ""+(a.getHeight()+a.getY());
+		}
 		return "";
 	}
 }
