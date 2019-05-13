@@ -189,6 +189,17 @@ public class PictureTester
     swan.explore();
   }
   
+  /** Method to test edgeDetection2 */
+  public static void testEncode()
+  {
+    Picture swan = new Picture("swan.jpg");
+    Picture msg = new Picture("msg.jpg");
+    swan.explore();
+    swan.encode(msg);
+    swan.explore();
+    swan.decode().explore();
+  }
+  
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -198,12 +209,12 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
 //    testZeroRed();
-    testZeroBlue();
+//    testZeroBlue();
 //    testZeroGreen();
 //    testKeepOnlyBlue();
 //    testKeepOnlyRed();
 //    testKeepOnlyGreen();
-    testNegate();
+//    testNegate();
 //    testGrayscale();
 //    testFixUnderwater();
 //	  testMirrorVertical();
@@ -213,12 +224,13 @@ public class PictureTester
 //	  testMirrorDiagonal(); 
 //    testMirrorTemple();
 //    testMirrorArms();
-    testMirrorGull();
+//    testMirrorGull();
 //    testCollage();
 //    testMyCollage();
 //    testCopy();
 //    testEdgeDetection();
 //    testEdgeDetection2();
+	  testEncode();
 	  
     //testChromakey();
     //testEncodeAndDecode();
