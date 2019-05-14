@@ -200,6 +200,17 @@ public class PictureTester
     swan.decode().explore();
   }
   
+  /** Method to test edgeDetection2 */
+  public static void testEncode2()
+  {
+    Picture beach = new Picture("beach.jpg");
+    Picture msg = new Picture("msg.jpg");
+    beach.explore();
+    beach.myEncode(msg);
+    beach.explore();
+    beach.myDecode().explore();
+  }
+  
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -230,8 +241,7 @@ public class PictureTester
 //    testCopy();
 //    testEdgeDetection();
 //    testEdgeDetection2();
-	  testEncode();
-	  
+	  testEncode2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);

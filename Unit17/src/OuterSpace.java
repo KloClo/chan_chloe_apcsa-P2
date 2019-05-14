@@ -128,10 +128,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		shots.moveEmAll();
 		horde.moveEmAll();
 		
-		if (horde.toString().equals("LOST") || Integer.parseInt(horde.toString()) >= ship.getY()) 
+		if (!gameOver)
 		{
-			dead = true;
-			gameOver = true;
+			if (horde.toString().equals("LOST") || Integer.parseInt(horde.toString()) >= ship.getY() - 40)
+			{
+				dead = true;
+				gameOver = true;
+			}
 		}
 
 		//add in collision detection to see if Bullets hit the Aliens and if Aliens hit the Ship	
@@ -150,7 +153,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			{
 				graphToBack.drawString(" You Won!!", 350, 330);
 			}
-			else graphToBack.drawString("The Aliens Have Invaded! You Lost :(", 330, 330);
+			else graphToBack.drawString("The Aliens Have Invaded! You Lost :(", 280, 330);
 		}
 
 		twoDGraph.drawImage(back, null, 0, 0);
