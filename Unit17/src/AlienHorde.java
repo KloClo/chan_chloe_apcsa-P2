@@ -53,13 +53,13 @@ public class AlienHorde
 		{
 			for (Alien a : aliens)
 			{
-				if (a.getX() == 0) 
+				if (a.getX() <= 0) 
 				{
 					right = true;
 					left = false;
 					down = true;
 				}
-				else if (a.getX()+a.getWidth() == 785) 
+				else if (a.getX()+a.getWidth() >= 785) 
 				{
 					right = false;
 					left = true;

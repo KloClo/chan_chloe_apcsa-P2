@@ -165,9 +165,22 @@ public class Picture extends SimplePicture
  	  {
  		  for (int col = 0; col < this.getWidth(); col++)
  		  {
- 			   // if the current pixel red is odd make it even
  			  currPixel = currPixels[row][col];
+ 			  //get the average of last digits
+ 			  int avg = (((currPixel.getRed()%10)+(currPixel.getBlue()%10)+(currPixel.getGreen()%10))/3);
  			  //encode
+			  messagePixel = messagePixels[row][col];
+			  if (messagePixel.colorDistance(Color.BLACK) < 50)
+			  {
+				  currPixel.setRed((currPixel.getRed()-(currPixel.getRed()%10)) + avg);
+				  currPixel.setBlue((currPixel.getBlue()-(currPixel.getBlue()%10)) + avg);
+				  currPixel.setGreen((currPixel.getGreen()-(currPixel.getGreen()%10)) + avg);
+				  count++;
+			  }
+			  else if ((currPixel.getRed()%10==currPixel.getBlue()%10) && (currPixel.getBlue()%10==currPixel.getGreen()%10))
+			  {
+				  currPixel.setBlue(currPixel.getBlue()+1);
+			  }
  		  }
  	  }
  	  System.out.println(count);
@@ -195,6 +208,11 @@ public class Picture extends SimplePicture
  			  currPixel = pixels[row][col];
  			  messagePixel = messagePixels[row][col];
  			  //decode
+ 			 if ((currPixel.getRed()%10==currPixel.getBlue()%10) && (currPixel.getBlue()%10==currPixel.getGreen()%10))
+ 			 {
+				  messagePixel.setColor(Color.BLACK);
+				  count++;
+ 			 }
  		  }
  	  }
  	  System.out.println(count);
